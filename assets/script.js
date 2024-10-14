@@ -46,20 +46,47 @@ for (let i = 0; i < teamMembers.length; i++) {
   console.log(member);
 
   const markup = generateTeamMember(member);
-  
+
+  teamEL.innerHTML += markup
+
 }
 
 function generateTeamMember(member) {
-  return `
-  <div class="col-4">
-    <div class="card">
-      <img src="./assets/img/female3.png" alt="" class="card-img">
+
+const { name, role, email, img } = member
+    
+  return`
+  <div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="${img}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">${name}</h5>
+        <p class="card-text">${role}</p>
+        <p class="card-text"><small class="text-body-secondary">${email}</small></p>
+      </div>
     </div>
   </div>
-  <div class="col-8">
-    <h3>Name</h3>
-    <p>roles</p>
-    <p>Email</p>
-  </div>
+</div>
   `
+
+
+
+
+
+
+  // return `
+  // <div class="col-4">
+  //   <div class="card">
+  //     <img src="${img}" alt="" class="card-img">
+  //   </div>
+  // </div>
+  // <div class="col-8">
+  //   <h3>${name}</h3>
+  //   <p>${role}</p>
+  //   <p>${email}</p>
+  // </div>
+  // `
 }
