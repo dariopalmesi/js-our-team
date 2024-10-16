@@ -43,34 +43,54 @@ const teamMembers = [
 const teamEL = document.getElementById('team')
 for (let i = 0; i < teamMembers.length; i++) {
   const member = teamMembers[i];
-  console.log(member);
-
-  const markup = generateTeamMember(member);
-
+  let { name, role, email, img } = member
+   let markup = `
+   <div class="col-4">
+                    <div class="card mb-3">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="${img}" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">${name}}</h5>
+                                    <p class="card-text">${role}</p>
+                                    <p class="card-text"><small class="text-body-secondary">${email}</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+   `
   teamEL.innerHTML += markup
+  //  const markup = generateTeamMember(member);
+
+  // teamEL.innerHTML += markup
 
 }
 
-function generateTeamMember(member) {
+// function generateTeamMember(member) {
 
-const { name, role, email, img } = member
-    
-  return`
-  <div class="card mb-3">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="${img}" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">${name}</h5>
-        <p class="card-text">${role}</p>
-        <p class="card-text"><small class="text-body-secondary">${email}</small></p>
-      </div>
-    </div>
-  </div>
-</div>
-  `
+// const { name, role, email, img } = member
+
+
+//    return`
+//    <div class="card mb-3">
+//    <div class="row g-0">
+//      <div class="col-md-4">
+//        <img src="${img}" class="img-fluid rounded-start" alt="...">
+//      </div>
+//      <div class="col-md-8">
+//        <div class="card-body">
+//          <h5 class="card-title">${name}</h5>
+//          <p class="card-text">${role}</p>
+//          <p class="card-text"><small class="text-body-secondary">${email}</small></p>
+//        </div>
+//      </div>
+//    </div>
+//  </div>
+//    `
 
 
 
@@ -89,4 +109,3 @@ const { name, role, email, img } = member
   //   <p>${email}</p>
   // </div>
   // `
-}
